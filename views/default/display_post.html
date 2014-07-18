@@ -1,0 +1,19 @@
+<!-- View For display blog post Page -->
+
+{{extend 'layout.html'}}
+
+<div class="well" style="font-family">
+	<h2>{{=post.title}}</h2><br>
+	<p>Posted on <i>{{=post.created_on}}</i> by <i>{{=post.created_by.first_name}}</i></p>
+	<br>
+	<p style="font-size:18px;">{{=post.body}}</p><br><br>
+	<h4 class="well">Comments</h4>
+	{{=form}}
+	<div class="well">
+		{{for comment in comments:}}
+			<p>On <i> {{=comment.created_on}}    {{=comment.created_by.first_name or "Anonymous"}}</i>    said  </p>
+			<p style="font-size:17px;">{{=comment.body}}</p>
+		{{pass}}
+	</div>
+</div>
+

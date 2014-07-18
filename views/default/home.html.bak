@@ -1,0 +1,8 @@
+{{extend 'layout.html'}}
+
+<div class="well" align="center">
+	<br><br><br><br><br><br><br><br><br><br>
+	<h1 style="font-family:verdana;font-size:40px;color:blue;">
+		HOMEPAGE CONTENT....
+	</h1><br><br><br><br><br><br><br><br><br><br>
+</div>

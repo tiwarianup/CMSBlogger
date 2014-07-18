@@ -1,0 +1,23 @@
+<!-- View For Post directory Page -->
+
+{{extend 'layout.html'}}
+
+<div align="center">
+	<a class="btn btn-large btn-danger" href="{{=URL('create_post', args=blog.id)}}">
+	Create New Blog Post</a><br>
+</div><br><br>
+
+<div style="font-size:17px;">
+	<table class="table">
+		<tr>
+			<td><strong>Title</strong></td>
+			<td><strong>Author</strong></td>
+		</tr>
+		{{for post in posts:}}
+			<tr>
+				<td><a href="{{=URL('display_post', args=post.id)}}">{{=post.title}}</a> </td>
+				<td>{{=post.created_by.first_name}}</td>
+			</tr>
+		{{pass}}
+	</table>
+</div>

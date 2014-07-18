@@ -1,0 +1,25 @@
+{{extend 'layout.html'}}
+
+<div class="well">
+	<a class="btn btn-large btn-success" href="{{=URL('summary')}}">SUMMARY OF ANALYSIS</a>
+	<a class="btn btn-large btn-danger" href="{{=URL('graphs')}}">INTERACTIVE GRAPHS</a>
+</div>
+<br><br>
+<table class="table">
+		<tr style="font-size:16px; font-weight:bold; color:violet;">
+			<td>Id</td>
+			<td>JobId</td>
+			<td>Activity</td>
+			<td>Aging</td>
+			<td>Qty</td>
+		</tr>
+	{{for dat in data:}}
+		<tr>
+			<td>{{=dat.id}}</td>
+			<td>{{=dat.JobID}}</td>
+			<td>{{=dat.Activity}}</td>
+			<td>{{=dat.Aging}}</td>
+			<td>{{=dat.Qty}}</td>
+		</tr>
+	{{pass}}
+</table>

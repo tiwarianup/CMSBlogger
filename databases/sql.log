@@ -1,0 +1,375 @@
+timestamp: 2014-07-05T10:28:03.971000
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2014-07-05T10:28:04.049000
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2014-07-05T10:28:04.174000
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2014-07-05T10:28:04.268000
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2014-07-05T10:28:04.346000
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2014-07-05T10:28:04.424000
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2014-07-05T10:40:20.705000
+CREATE TABLE blog_post(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    body CHAR(512),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
+);
+success!
+success!
+timestamp: 2014-07-05T10:43:33.236000
+CREATE TABLE blog_comment(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    blog_post INTEGER REFERENCES blog_post (id) ON DELETE CASCADE,
+    body CHAR(512),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2014-07-07T14:03:12.529000
+CREATE TABLE blog_name(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2014-07-07T14:03:12.654000
+ALTER TABLE blog_post ADD blog_name INTEGER REFERENCES blog_name (id) ON DELETE CASCADE;
+success!
+timestamp: 2014-07-08T11:11:18.755000
+CREATE TABLE auth_user(
+    id INT IDENTITY PRIMARY KEY,
+    first_name VARCHAR(128) NULL,
+    last_name VARCHAR(128) NULL,
+    email VARCHAR(512) NULL,
+    password VARCHAR(512) NULL,
+    registration_key VARCHAR(512) NULL,
+    reset_password_key VARCHAR(512) NULL,
+    registration_id VARCHAR(512) NULL
+);
+success!
+timestamp: 2014-07-08T11:11:18.770000
+CREATE TABLE auth_group(
+    id INT IDENTITY PRIMARY KEY,
+    role VARCHAR(512) NULL,
+    description TEXT NULL
+);
+success!
+timestamp: 2014-07-08T11:11:18.786000
+CREATE TABLE auth_membership(
+    id INT IDENTITY PRIMARY KEY,
+    user_id INT NULL, CONSTRAINT auth_membership_user_id__constraint FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INT NULL, CONSTRAINT auth_membership_group_id__constraint FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2014-07-08T11:11:18.802000
+CREATE TABLE auth_permission(
+    id INT IDENTITY PRIMARY KEY,
+    group_id INT NULL, CONSTRAINT auth_permission_group_id__constraint FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE CASCADE,
+    name VARCHAR(512) NULL,
+    table_name VARCHAR(512) NULL,
+    record_id INT NULL
+);
+success!
+timestamp: 2014-07-08T11:11:18.833000
+CREATE TABLE auth_event(
+    id INT IDENTITY PRIMARY KEY,
+    time_stamp DATETIME NULL,
+    client_ip VARCHAR(512) NULL,
+    user_id INT NULL, CONSTRAINT auth_event_user_id__constraint FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin VARCHAR(512) NULL,
+    description TEXT NULL
+);
+success!
+timestamp: 2014-07-08T11:11:18.848000
+CREATE TABLE auth_cas(
+    id INT IDENTITY PRIMARY KEY,
+    user_id INT NULL, CONSTRAINT auth_cas_user_id__constraint FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on DATETIME NULL,
+    service VARCHAR(512) NULL,
+    ticket VARCHAR(512) NULL,
+    renew BIT NULL
+);
+success!
+timestamp: 2014-07-08T11:11:18.864000
+CREATE TABLE blog_name(
+    id INT IDENTITY PRIMARY KEY,
+    title VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_name_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_name_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE CASCADE
+);
+timestamp: 2014-07-08T11:16:04.385000
+CREATE TABLE blog_name(
+    id INT IDENTITY PRIMARY KEY,
+    title VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_name_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_name_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE CASCADE
+);
+timestamp: 2014-07-08T11:23:28.418000
+CREATE TABLE blog_name(
+    id INT IDENTITY PRIMARY KEY,
+    title VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_name_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_name_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE CASCADE
+);
+timestamp: 2014-07-08T11:25:54.075000
+CREATE TABLE blog_name(
+    id INT IDENTITY PRIMARY KEY,
+    title VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_name_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_name_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE CASCADE
+);
+timestamp: 2014-07-08T11:41:17.684000
+CREATE TABLE blog_name(
+    id INT IDENTITY PRIMARY KEY,
+    title VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_name_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_name_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE CASCADE
+);
+timestamp: 2014-07-08T11:47:29.590000
+CREATE TABLE blog_name(
+    id INT IDENTITY PRIMARY KEY,
+    title VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_name_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_name_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE CASCADE
+);
+timestamp: 2014-07-08T11:49:51.606000
+CREATE TABLE blog_name(
+    id INT IDENTITY PRIMARY KEY,
+    title VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_name_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_name_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE CASCADE
+);
+timestamp: 2014-07-08T12:04:15.503000
+CREATE TABLE blog_name(
+    id INT IDENTITY PRIMARY KEY,
+    title VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_name_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE NO ACTION,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_name_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE NO ACTION
+);
+success!
+timestamp: 2014-07-08T12:04:15.518000
+CREATE TABLE blog_post(
+    id INT IDENTITY PRIMARY KEY,
+    blog_name INT NULL, CONSTRAINT blog_post_blog_name__constraint FOREIGN KEY (blog_name) REFERENCES blog_name (id) ON DELETE NO ACTION,
+    title VARCHAR(512) NULL,
+    body TEXT NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_post_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE NO ACTION,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_post_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE NO ACTION
+);
+success!
+timestamp: 2014-07-08T12:04:15.534000
+CREATE TABLE blog_comment(
+    id INT IDENTITY PRIMARY KEY,
+    blog_post INT NULL, CONSTRAINT blog_comment_blog_post__constraint FOREIGN KEY (blog_post) REFERENCES blog_post (id) ON DELETE NO ACTION,
+    body VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_comment_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE NO ACTION,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_comment_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE NO ACTION
+);
+success!
+timestamp: 2014-07-14T18:35:10.513000
+CREATE TABLE auth_user(
+    id INT IDENTITY PRIMARY KEY,
+    first_name VARCHAR(128) NULL,
+    last_name VARCHAR(128) NULL,
+    email VARCHAR(512) NULL,
+    password VARCHAR(512) NULL,
+    registration_key VARCHAR(512) NULL,
+    reset_password_key VARCHAR(512) NULL,
+    registration_id VARCHAR(512) NULL
+);
+success!
+timestamp: 2014-07-14T18:35:10.545000
+CREATE TABLE auth_group(
+    id INT IDENTITY PRIMARY KEY,
+    role VARCHAR(512) NULL,
+    description TEXT NULL
+);
+success!
+timestamp: 2014-07-14T18:35:10.591000
+CREATE TABLE auth_membership(
+    id INT IDENTITY PRIMARY KEY,
+    user_id INT NULL, CONSTRAINT auth_membership_user_id__constraint FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE NO ACTION,
+    group_id INT NULL, CONSTRAINT auth_membership_group_id__constraint FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE NO ACTION
+);
+success!
+timestamp: 2014-07-14T18:35:10.607000
+CREATE TABLE auth_permission(
+    id INT IDENTITY PRIMARY KEY,
+    group_id INT NULL, CONSTRAINT auth_permission_group_id__constraint FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE NO ACTION,
+    name VARCHAR(512) NULL,
+    table_name VARCHAR(512) NULL,
+    record_id INT NULL
+);
+success!
+timestamp: 2014-07-14T18:35:10.638000
+CREATE TABLE auth_event(
+    id INT IDENTITY PRIMARY KEY,
+    time_stamp DATETIME NULL,
+    client_ip VARCHAR(512) NULL,
+    user_id INT NULL, CONSTRAINT auth_event_user_id__constraint FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE NO ACTION,
+    origin VARCHAR(512) NULL,
+    description TEXT NULL
+);
+success!
+timestamp: 2014-07-14T18:35:10.654000
+CREATE TABLE auth_cas(
+    id INT IDENTITY PRIMARY KEY,
+    user_id INT NULL, CONSTRAINT auth_cas_user_id__constraint FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE NO ACTION,
+    created_on DATETIME NULL,
+    service VARCHAR(512) NULL,
+    ticket VARCHAR(512) NULL,
+    renew BIT NULL
+);
+success!
+timestamp: 2014-07-14T18:35:10.669000
+CREATE TABLE blog_name(
+    id INT IDENTITY PRIMARY KEY,
+    title VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_name_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE NO ACTION,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_name_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE NO ACTION
+);
+success!
+timestamp: 2014-07-14T18:35:10.669000
+CREATE TABLE blog_post(
+    id INT IDENTITY PRIMARY KEY,
+    blog_name INT NULL, CONSTRAINT blog_post_blog_name__constraint FOREIGN KEY (blog_name) REFERENCES blog_name (id) ON DELETE NO ACTION,
+    title VARCHAR(512) NULL,
+    body TEXT NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_post_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE NO ACTION,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_post_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE NO ACTION
+);
+success!
+timestamp: 2014-07-14T18:35:10.685000
+CREATE TABLE blog_comment(
+    id INT IDENTITY PRIMARY KEY,
+    blog_post INT NULL, CONSTRAINT blog_comment_blog_post__constraint FOREIGN KEY (blog_post) REFERENCES blog_post (id) ON DELETE NO ACTION,
+    body VARCHAR(512) NULL,
+    is_active BIT NULL,
+    created_on DATETIME NULL,
+    created_by INT NULL, CONSTRAINT blog_comment_created_by__constraint FOREIGN KEY (created_by) REFERENCES auth_user (id) ON DELETE NO ACTION,
+    modified_on DATETIME NULL,
+    modified_by INT NULL, CONSTRAINT blog_comment_modified_by__constraint FOREIGN KEY (modified_by) REFERENCES auth_user (id) ON DELETE NO ACTION
+);
+success!
+timestamp: 2014-07-15T10:47:42.357000
+CREATE TABLE tMISData(
+    id INT IDENTITY PRIMARY KEY,
+    AppInstanceID VARCHAR(512) NULL,
+    JobID INT NULL,
+    DataFetchDate DATETIME NULL,
+    Activity VARCHAR(512) NULL,
+    BaseDate DATETIME NULL,
+    BaseRef VARCHAR(512) NULL,
+    Aging VARCHAR(512) NULL,
+    Qty INT NULL,
+    RequestDate DATETIME NULL,
+    PostDate DATETIME NULL
+);
+success!
+timestamp: 2014-07-15T10:49:03.571000
+CREATE TABLE tMISData(
+    id INT IDENTITY PRIMARY KEY,
+    AppInstanceID VARCHAR(512) NULL,
+    JobID INT NULL,
+    DataFetchDate DATETIME NULL,
+    Activity VARCHAR(512) NULL,
+    BaseDate DATETIME NULL,
+    BaseRef VARCHAR(512) NULL,
+    Aging VARCHAR(512) NULL,
+    Qty INT NULL,
+    RequestDate DATETIME NULL,
+    PostDate DATETIME NULL
+);

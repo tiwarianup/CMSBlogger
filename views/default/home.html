@@ -1,0 +1,13 @@
+<!-- View For Blogs directory Page -->
+{{extend 'layout.html'}}
+
+<div align="center">
+	<h1 style="font-family:verdana;font-size:40px;color:blue;">
+	<table class="table" align="left">
+		{{for blog in blogs:}}
+			<tr>
+				<td><p style="font-size:25px;"><a href="{{=URL('blog', args=blog.id)}}">{{=blog.title}}</a></p></td>
+			</tr>
+		{{pass}}
+	</table>
+</div>

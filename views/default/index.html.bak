@@ -1,0 +1,19 @@
+{{extend 'layout.html'}}
+
+<h2 class="well" style="font-family:verdana;">
+    Click on the Link to read the blog post
+</h2>
+<table class="table">
+    <tr>
+        <td>Sr. No</td>
+        <td>Title</td>
+        <td>Author</td>
+    </tr>
+    {{for post in posts:}}
+    <tr>
+        <td>{{=post.id}}</td>
+        <td><a href="{{=URL('show', args=post.id))}}">{{=post.title}}</a></td>
+        <td>{{=post.created_by.first_name}}</td>
+    </tr>
+    {{pass}}
+</table>

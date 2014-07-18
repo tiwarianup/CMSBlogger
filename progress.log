@@ -1,0 +1,63 @@
+[2014-07-05 10:25:15] START
+[2014-07-05 10:25:56] CREATE database.py: 0
+[2014-07-05 10:26:47] EDIT Blog/controllers/default.py: -7
+[2014-07-05 10:27:53] EDIT Blog/models/menu.py: 1
+[2014-07-05 10:27:55] EDIT Blog/models/menu.py: 0
+[2014-07-05 10:31:13] EDIT Blog/models/database.py: 4
+[2014-07-05 10:31:30] EDIT Blog/models/database.py: 0
+[2014-07-05 10:33:07] EDIT Blog/models/database.py: 0
+[2014-07-05 10:33:09] EDIT Blog/models/database.py: 0
+[2014-07-05 10:33:52] EDIT Blog/models/menu.py: 0
+[2014-07-05 10:34:03] EDIT Blog/models/menu.py: 0
+[2014-07-05 10:36:48] EDIT Blog/models/menu.py: -102
+[2014-07-05 10:36:54] EDIT Blog/models/menu.py: 0
+[2014-07-05 10:37:51] EDIT Blog/models/menu.py: -2
+[2014-07-05 10:39:51] CREATE db1.py: 0
+[2014-07-05 10:39:56] EDIT Blog/models/db1.py: 4
+[2014-07-05 10:40:00] EDIT Blog/models/db1.py: 0
+[2014-07-05 10:40:17] DELETE Blog/models/database.py: -4
+[2014-07-05 10:42:57] EDIT Blog/models/db1.py: 4
+[2014-07-05 10:43:27] EDIT Blog/models/db1.py: 0
+[2014-07-05 10:47:50] EDIT Blog/controllers/default.py: 6
+[2014-07-05 11:07:24] EDIT Blog/controllers/default.py: 1
+[2014-07-05 11:07:53] EDIT Blog/views/default/index.html: -28
+[2014-07-05 11:08:19] EDIT Blog/views/default/index.html: -3
+[2014-07-05 11:14:07] EDIT Blog/controllers/default.py: 0
+[2014-07-05 11:18:31] EDIT Blog/views/default/index.html: 8
+[2014-07-05 11:20:06] EDIT Blog/views/default/index.html: 0
+[2014-07-05 11:21:57] EDIT Blog/views/default/index.html: 3
+[2014-07-05 11:21:59] EDIT Blog/views/default/index.html: 0
+[2014-07-05 11:24:24] EDIT Blog/views/default/index.html: 6
+[2014-07-05 11:24:52] EDIT Blog/views/default/index.html: 0
+[2014-07-05 11:26:25] EDIT Blog/views/default/index.html: 0
+[2014-07-05 11:26:41] EDIT Blog/views/default/index.html: 0
+[2014-07-05 11:28:31] EDIT Blog/views/default/index.html: 0
+[2014-07-05 11:28:32] EDIT Blog/views/default/index.html: 0
+[2014-07-05 11:29:01] EDIT Blog/views/default/index.html: 0
+[2014-07-05 11:52:19] CREATE display.html: 0
+[2014-07-05 11:52:29] CREATE manage.html: 0
+[2014-07-05 11:58:19] CREATE create.html: 0
+[2014-07-05 15:58:03] EDIT Blog/models/menu.py: 0
+[2014-07-05 15:58:44] EDIT Blog/models/menu.py: 0
+[2014-07-05 15:58:59] EDIT Blog/controllers/default.py: 0
+[2014-07-05 15:59:01] EDIT Blog/controllers/default.py: 0
+[2014-07-05 15:59:36] EDIT Blog/models/menu.py: 0
+[2014-07-05 15:59:53] EDIT Blog/controllers/default.py: 0
+[2014-07-05 15:59:53] EDIT Blog/controllers/default.py: 0
+[2014-07-05 17:58:06] EDIT Blog/views/default/home.html: 0
+[2014-07-05 17:58:36] EDIT Blog/views/default/home.html: 0
+[2014-07-10 10:48:39] UPLOAD C:/Documents and Settings/anuptiwari/Desktop/web2py/applications/Blog/modules/weblog.py: 89
+[2014-07-10 10:48:47] UPLOAD C:/Documents and Settings/anuptiwari/Desktop/web2py/applications/Blog/modules/timeseries.py: 33
+[2014-07-10 10:48:54] UPLOAD C:/Documents and Settings/anuptiwari/Desktop/web2py/applications/Blog/modules/report.py: 48
+[2014-07-10 10:49:03] UPLOAD C:/Documents and Settings/anuptiwari/Desktop/web2py/applications/Blog/modules/perflog_0.12.zip.py: 59
+[2014-07-10 10:49:08] DELETE Blog/modules/perflog_0.12.zip.py: -3
+[2014-07-10 10:49:24] UPLOAD C:/Documents and Settings/anuptiwari/Desktop/web2py/applications/Blog/modules/perflog.py: 71
+[2014-07-10 10:49:30] UPLOAD C:/Documents and Settings/anuptiwari/Desktop/web2py/applications/Blog/modules/LICENSE.py: 281
+[2014-07-10 10:49:36] UPLOAD C:/Documents and Settings/anuptiwari/Desktop/web2py/applications/Blog/modules/grapher.py: 25
+[2014-07-10 10:49:43] UPLOAD C:/Documents and Settings/anuptiwari/Desktop/web2py/applications/Blog/modules/corestats.py: 65
+[2014-07-11 10:54:47] CREATE analytics.py: 0
+[2014-07-14 18:36:41] EDIT Blog/models/db.py: 0
+[2014-07-14 18:36:48] EDIT Blog/models/db.py: 0
+[2014-07-14 18:36:52] EDIT Blog/models/db.py: 0
+[2014-07-15 17:01:44] DELETE Blog/modules/pygal/__init__.py: -16
+[2014-07-15 17:01:47] DELETE Blog/modules/pygal/_compat.py: -26

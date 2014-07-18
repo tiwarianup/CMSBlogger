@@ -1,0 +1,8 @@
+# coding: utf8
+
+#Table for storing title and body of the blog
+
+db.define_table('blog_post',
+                Field('title', requires = IS_NOT_EMPTY()),
+                Field('body', requires = IS_NOT_EMPTY()),
+                      auth.signature)
